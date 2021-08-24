@@ -19,17 +19,18 @@ POST /api/getPBBService
 * `nop`: nomor objek pajak
 * `nik`: nomor induk kependudukan
 * `nama_wp`: nama wajib pajak
-* `alamat_op`: 
-* `kelurahan_op`:
-* `kecamatan_op`:
-* `kota_op`: 
-* `luastanah_op`: 
-* `luasbangunan_op`:
-* `njop_tanah_op`: 
-* `njop_bangunan_op`:
-* 
-
+* `alamat_op`: alamat objek pajak
+* `kelurahan_op`: kelurahan objek pajak
+* `kecamatan_op`: kecamatan objek pajak
+* `kota_op`: kota objek pajak
+* `luastanah_op`: luas tanah objek pajak
+* `luasbangunan_op`: luas bangunan objek pajak
+* `njop_tanah_op`:  NJOP bumi objek pajak
+* `njop_bangunan_op`: NJOP bangunan objek pajak
+* `status_tunggakan`: String
 
 === _Request Example_
+
+
 
 === _Response Example_
