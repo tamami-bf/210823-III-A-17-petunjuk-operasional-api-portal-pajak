@@ -1,0 +1,128 @@
+== Daftar Piutang Berdasarkan Nomor Objek Pajak (NOP)
+
+Simpul ini untuk melakukan pengambilan data piutang seluruh tahun pajak berdasarkan Nomor Objek Pajak (NOP).
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /sismiop-service/public/get-nop
+----
+
+=== _Parameters_
+
+* `nop`: String
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/public/get-nop
+----
+
+_body_ :
+
+----
+332901000100100010
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2010",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2010-07-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2011",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2011-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2012",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2012-09-27T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2013",
+    "pbb": 35750,
+    "statusPembayaran": "2",
+    "tglJatuhTempo": "2013-08-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2014",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2014-08-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2015",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2015-08-30T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2016",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2016-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2017",
+    "pbb": 35750,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2017-08-30T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2018",
+    "pbb": 50000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2018-08-30T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2019",
+    "pbb": 50000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2019-08-30T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2020",
+    "pbb": 50000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2020-08-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2021",
+    "pbb": 50000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  }
+]
+----

@@ -1,0 +1,189 @@
+
+Dokumen ini berisi simpul simpul akses untuk melakukan pengambilan data dari fungsi pengelola Pajak Daerah. Akses data  dapat dilakukan melalui alamat http://pajak-daerah.brebeskab.go.id
+
+
+== Daftar Layanan
+
+=== Layanan Umum
+
+* <<Daftar Piutang Berdasarkan Nomor Objek Pajak (NOP)>>
+
+=== Layanan Billing
+
+* <<_membuat_kode_bayar>>
+* <<_inquiry_data_pbb>>
+
+=== Layanan BPD
+
+* <<_data_piutang_berdasarkan_wilayah>>
+
+=== Layanan BPN
+
+=== Layanan Dashboard
+
+=== Layanan Desa
+
+=== Layanan KPK
+
+=== Layanan Aplikasi _Mobile_
+
+=== Layanan _Mocking_
+
+=== Layanan Wilayah
+
+
+* <<Target Pajak Daerah>>
+* <<Realisasi Pajak Daerah (Selain PBB-P2 dan BPHTB)>>
+* <<Realisasi BPHTB>>
+* <<Realisasi PBB-P2>>
+
+
+
+include::./002-api.adoc[]
+include::./003-billing.adoc[]
+
+
+== Target Pajak Daerah
+
+Simpul ini untuk melakukan pengambilan informasi target dari seluruh jenis pajak daerah.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /simda-service/get-all-target
+----
+
+=== _Parameters_
+
+----
+-
+----
+
+=== _Request Example_
+
+----
+http:/pajak-daerah.brebeskab.go.id/simda-service/get-all-target
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "kdRek1": 4, 
+    "kdRek2": 1, 
+    "kdRek3": 1,
+    "kdRek4": 1,
+    "nmRek4": "Pajak Hotel",
+    "total": 150000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1,
+    "kdRek3": 1,
+    "kdRek4": 2,
+    "nmRek4": "Pajak Restoran",
+    "total": 2750000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1, 
+    "kdRek4": 3, 
+    "nmRek4": "Pajak Hiburan",
+    "total": 175000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1,
+    "kdRek4": 4,
+    "nmRek4": "Pajak Reklame",
+    "total": 2500000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1, 
+    "kdRek4": 5, 
+    "nmRek4": "Pajak Penerangan Jalan",
+    "total": 53000000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1,
+    "kdRek4": 6,
+    "nmRek4": "Pajak Pengambilan Bahan Galian Golongan C",
+    "total": 85000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1,
+    "kdRek4": 7,
+    "nmRek4": "Pajak Parkir",
+    "total": 110000000.0000
+  },
+  {
+    "kdRek1": 4, 
+    "kdRek2": 1, 
+    "kdRek3": 1, 
+    "kdRek4": 8,
+    "nmRek4": "Pajak Air Bawah Tanah",
+    "total": 350000000.0000
+  },
+  {
+    "kdRek1": 4,
+    "kdRek2": 1, 
+    "kdRek3": 1, 
+    "kdRek4": 11,
+    "nmRek4": "Pajak Bumi dan Bangunan (PBB)",
+    "total": 37000000000.0000
+  },
+  {
+    "kdRek1": 4, 
+    "kdRek2": 1, 
+    "kdRek3": 1, 
+    "kdRek4": 12,
+    "nmRek4": "Pajak Bea Perolehan Hak atas Tanah dan Bangunan (BPHTB)",
+    "total": 13000000000.0000
+  }
+]
+----
+
+
+== Realisasi Pajak Daerah (Selain PBB-P2 dan BPHTB)
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+== Realisasi BPHTB
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+== Realisasi PBB-P2
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+== 

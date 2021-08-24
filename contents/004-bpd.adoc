@@ -1,0 +1,78 @@
+== Data Piutang Berdasarkan Wilayah
+
+Simpul ini untuk mendapatkan data piutang berdasarkan wilayah Desa/Kelurahan
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /sismiop-service/bpd/get-piutang
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `kdWilayah`: kode wilayah Desa/Kelurahan
+* `thnPajak`: tahun pajak
+
+==== _Response Parameters_
+
+* `List<RespTagihanMassal>` : daftar seluruh tagihan yang menjadi piutang PBB-P2
+
+`RespTagihanMassal` terdiri dari :
+
+* `nop`: String, Nomor Objek Pajak 
+* `namaWp`: String, nama wajib pajak
+* `thnPajak`: String, tahun pajak 
+* `pbb`: BigDecimal, nilai besaran pokok piutang PBB-P2
+* `denda`: BigDecimal, nilai besaran denda yang muncul karena keterlambatan pembayaran
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/bpd/get-piutang
+----
+
+_body_ : 
+
+----
+{
+    "kdWilayah": "3329080516", 
+    "thnPajak": "2021"
+}
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "nop": "332908051600100020",
+    "namaWp": "PT PROTELINDO",
+    "thnPajak": "2021",
+    "pbb": 371525,
+    "denda": 0
+  },
+  {
+    "nop": "332908051601000460",
+    "namaWp": "PT XL AXIATA TBK - BTS",
+    "thnPajak": "2021",
+    "pbb": 656526,
+    "denda": 0
+  },
+  {
+    "nop": "332908051601203470",
+    "namaWp": "PT TELKOMSEL - BTS",
+    "thnPajak": "2021",
+    "pbb": 598400,
+    "denda": 0
+  },
+  {
+    "nop": "332908051601203480",
+    "namaWp": "PT INDOSAT - BTS",
+    "thnPajak": "2021",
+    "pbb": 332375,
+    "denda": 0
+  }
+]
+----

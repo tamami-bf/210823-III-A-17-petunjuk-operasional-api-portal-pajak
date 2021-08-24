@@ -1,0 +1,35 @@
+== Informasi Tunggakan PBB
+
+Simpul ini memberikan informasi bagi ATR/BPN untuk melakukan pemeriksaan tunggakan PBB-P2 untuk objek yang akan didaftarkan
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /api/getPBBService
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `nop`: nomor objek pajak
+
+==== _Response Parameters_
+
+* `nop`: nomor objek pajak
+* `nik`: nomor induk kependudukan
+* `nama_wp`: nama wajib pajak
+* `alamat_op`: 
+* `kelurahan_op`:
+* `kecamatan_op`:
+* `kota_op`: 
+* `luastanah_op`: 
+* `luasbangunan_op`:
+* `njop_tanah_op`: 
+* `njop_bangunan_op`:
+* 
+
+
+=== _Request Example_
+
+=== _Response Example_

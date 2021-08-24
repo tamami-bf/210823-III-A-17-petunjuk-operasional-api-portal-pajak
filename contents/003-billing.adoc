@@ -1,0 +1,153 @@
+== Membuat Kode Bayar
+
+Simpul ini untuk melakukan pembentukan kode bayar dari beberapa Nomor Objek Pajak (NOP) dan tahun pajak tertentu.
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /sismiop-service/billing/create-billing-code
+----
+
+=== _Parameters_
+
+* `data`: List<Object>
+* `Object`: {
+    "nop": String,
+    "thn": String
+  }
+* `nop`: Nomor Objek Pajak
+* `thn`: Tahun Pajak
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/billing/create-billing-code
+----
+
+_body_ :
+
+----
+[
+    {
+        "nop": "332901000100100010",
+        "thn": "2021"
+    },
+    {
+        "nop": "332901000100100020",
+        "thn": "2021"
+    }
+]
+----
+
+=== _Response Example_
+
+----
+{
+  "billingCode": "332991629705483268",
+  "expired": "2021-8-24T2:58:3",
+  "data": [
+    {
+      "nop": "332901000100100010",
+      "thn": "2021",
+      "nama": "SUKARTA",
+      "nilai": 50000,
+      "tglJatuhTempo": "2021-09-29T17:00:00.000+0000",
+      "denda": 0
+    },
+    {
+      "nop": "332901000100100020",
+      "thn": "2021",
+      "nama": "SUKARTA",
+      "nilai": 21500,
+      "tglJatuhTempo": "2021-09-29T17:00:00.000+0000",
+      "denda": 0
+    }
+  ]
+}
+----
+
+
+== _Inquiry_ Data PBB
+
+Simpul ini memberikan informasi tagihan Pajak Bumi dan Bangunan untuk tempat pembayaran berdasarkan Nomor Objek Pajak (NOP) dan tahun pajak.
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /sismiop-service/billing/inquiry
+---- 
+
+=== _Parameters_
+
+==== Parameter _Request_
+
+* `Object`: `{ "kodeBank": String, "channelId": String, "nopTahun": String, "terminalId": String, "dateTime": String }`
+* `kodeBank`: kode bank tempat pembayaran
+* `channelId`: kode kanal pembayaran yang melakukan _request_ data
+* `nopTahun`: NOP dan tahun pajak yang diminta datanya
+* `terminalId`: kode terminal dari tempat pembayaran yang melakukan _inquiry_ data
+* `dateTime`: waktu pada saat melakukan _inquiry_, formatnya `YYMMDDhhmm`
+** `YY` adalah 2 (dua) digit akhir tahun
+** `MM` adalah 2 (dua) digit bulan
+** `DD` adalah 2 (dua) digit tanggal
+** `hh` adalah 2 (dua) digit jam untuk format 24 jam
+** `mm` adalah 2 (dua) digit menit
+
+==== Parameter _Response_
+
+* `nop`: String
+* `nama`: String
+* `alamat`: String
+* `kelurahan`: String
+* `kecamatan`: String
+* `kabupatenKota`: String
+* `provinsi`: String
+* `tahun`: String
+* `nominalPokok`: BigDecimal
+* `nominalDenda`: BigDecimal
+* `totalNominal`: BigDecimal
+* `responseCode`: String
+
+Isi dari `responseCode` seperti berikut :
+
+* `00`: sukses
+* `01`: tagihan sudah terbayar
+* `88`: tidak diketahui
+* `99`: data tidak ditemukan
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/billing/inquiry
+----
+
+_body_ : 
+
+----
+{
+    "kodeBank": "113", 
+    "channelId": "6016",
+    "nopTahun": "3329010001001000102021",
+    "terminalId": "1",
+    "dateTime": "2108231545"
+}
+----
+
+=== _Response Example_
+
+----
+{
+  "nop": "332901000100100010",
+  "nama": "SUKARTA",
+  "alamat": "KO TEGALAN",
+  "kelurahan": "GUNUNGJAYA",
+  "kecamatan": "SALEM",
+  "kabupatenKota": "BREBES",
+  "provinsi": "JAWA TENGAH",
+  "tahun": "2021",
+  "nominalPokok": 50000,
+  "nominalDenda": 0,
+  "totalNominal": 50000,
+  "responseCode": "01"
+}
+----
