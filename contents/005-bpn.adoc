@@ -31,6 +31,33 @@ POST /api/getPBBService
 
 === _Request Example_
 
+----
+pajak-daerah.brebeskab.go.id/api/getPBBService
+----
 
+_body_:
+
+----
+{
+    "nop": "332901000100100010"
+}
+----
 
 === _Response Example_
+
+----
+{
+  "NOP": "332901000100100010",
+  "NIK": "332901000100100010            ",
+  "NAMA_WP": "SUKARTA",
+  "ALAMAT_OP": "KO TEGALAN null RT.000/RW.00",
+  "KELURAHAN_OP": "GUNUNGJAYA",
+  "KECAMATAN_OP": "SALEM",
+  "KOTA_OP": "KAB. BREBES",
+  "LUASTANAH_OP": 5000,
+  "LUASBANGUNAN_OP": 0,
+  "NJOP_TANAH_OP": 135000000,
+  "NJOP_BANGUNAN_OP": 0,
+  "STATUS_TUNGGAKAN": "100.0% LUNAS"
+}
+----

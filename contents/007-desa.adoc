@@ -1,0 +1,313 @@
+== Data Piutang Berdasarkan Kode Wilayah
+
+Simpul ini memberikan daftar rincian seluruh data ketetapan untuk tiap Nomor Objek Pajak (NOP) Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2).
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /sismiop-service/desa/get-all-data-current-year
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `kodeWilayah`: String, kode wilayah lengkap dari Desa/Kelurahan ada di dalam _body request_ tanpa format apapun
+
+==== _Response Parameters_
+
+`List` data dengan elemen seperti berikut :
+
+* `nop`: Nomor Objek Pajak 
+* `namaWp`: Nama Wajib Pajak
+* `thnPajak`: Tahun Pajak
+* `pbb`: Besarnya pokok pajak terhutang
+* `statusPemmbayaran`: status pembayaran, bila berisi `1` maka tagihan telah terbayar, bila berisi `0` belum terbayar
+* `tglJatuhTempo`: tanggal jatuh tempo untuk pajak terhutang objek tersebut
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-all-data-current-year
+----
+
+_body_ :
+
+----
+3329010001
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "nop": "332901000100100010",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2021",
+    "pbb": 50000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100020",
+    "namaWp": "SUKARTA",
+    "thnPajak": "2021",
+    "pbb": 21500,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100030",
+    "namaWp": "WARSUKI",
+    "thnPajak": "2021",
+    "pbb": 15000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000100100040",
+    "namaWp": "WARSUKI",
+    "thnPajak": "2021",
+    "pbb": 18200,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  ...
+]
+----
+
+
+
+== Data Piutang Untuk Tahun Pajak Tertentu
+
+Simpul ini memberikan daftar rincian untuk seluruh objek yang belum terbayar di suatu wilayah Desa/Kelurahan tertentu dan di tahun pajak tertentu.
+
+=== _Endpoint_ dan _Methods_
+
+----
+POST /sismiop-service/desa/get-unpaid-data-by-year
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+Berbentuk JSON dengan elemen :
+
+* `kodeWilayah`: String, kode wilayah lengkah dari Desa/Kelurahan
+* `thnPajak`: String, tahun pajak 
+
+==== _Response Parameters_
+
+`List` data dengan elemen tiap objeknya seperti berikut :
+
+* `nop`: nomor objek pajak
+* `namaWp`: nama wajib pajak
+* `thnPajak`: tahun pajak
+* `pbb`: besaran pokok yang terhutang
+* `statusPembayaran`: status pembayaran tagihan
+* `tglJatuhTempo`: tanggal jatuh tempo pembayaran untuk objek tersebut
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-unpaid-data-by-year
+----
+
+_body_ :
+
+----
+{
+    "kodeWilayah": "3329160016",
+    "thnPajak": "2021"
+}
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "nop": "332916001600100010",
+    "namaWp": "SUPARMI",
+    "thnPajak": "2021",
+    "pbb": 58320,
+    "statusPembayaran": "0",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332916001600100020",
+    "namaWp": "WALEM BIN TANYA",
+    "thnPajak": "2021",
+    "pbb": 58380,
+    "statusPembayaran": "0",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332916001600100030",
+    "namaWp": "TOHIDIN TARNINGSIH",
+    "thnPajak": "2021",
+    "pbb": 43060,
+    "statusPembayaran": "0",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332916001600100040",
+    "namaWp": "SLAMET NURIDIN",
+    "thnPajak": "2021",
+    "pbb": 75860,
+    "statusPembayaran": "0",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  ...
+]
+----
+
+
+
+== Data Terbayar Untuk Tahun Pajak Tertentu
+
+Simpul ini memberikan daftar rincian untuk seluruh objek yang telah terbayar berdasarkan ketetapannya di wilayah Desa/Kelurahan tertentu dan untuk tahun pajak tertentu, tidak termasuk denda administrasi bila ada.
+
+=== _Endpoint_ dan _Methods_
+
+----
+
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+
+== Data Ijmal Piutang dan Realisasi di Wilayah Tertentu Untuk Tahun Pajak Tertentu
+
+Simpul ini memberikan informasi data rekapitulasi piutang dan realisasi untuk wilayah tertentu dan tahun pajak tertentu
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+== Data Ijmal Piutang Untuk Wilayah Desa/Kelurahan Tertentu dan Tahun Pajak Tertentu
+
+Simpul ini hanya memberikan data rekapitulasi piutang untuk wilayah Desa/Kelurahan tertentu dan tahun pajak tertentu
+
+=== _Endpoint_ dan _Methods_ 
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+== Data Ijmal Piutang Untuk Wilayah Tertentu dan Tahun Pajak Tertentu
+
+Simpul ini hanya memberikan data rekapitulasi piutang untuk wilayah tertentu dan tahun pajak tertentu, wilayah Kabupaten/Kota, Kecamatan, dan Desa/Kelurahan akan dibedakan dari kode wilayahnya.
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+== Data Ijmal Realisasi Untuk Wilayah Desa/Kelurahan Tertentu dan Tahun Pajak Tertentu
+
+Simpul ini hanya memberikan nilai rekapitulasi realisasi untuk wilayah Desa/Kelurahan tertentu dan tahun pajak tertentu.
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _response Example_
+
+
+
+== Data Ijmal Realisasi Untuk Wilayah Tertentu dan Tahun Pajak Tertentu
+
+Simpul ini hanya memberikan nilai rekapitulasi dari realisasi untuk wilayah tertentu dan tahun pajak tertentu. Wilayah Kabupaten/Kota, Kecamatan, dan Desa/Kelurahan akan dibedakan dari kode wilayahnya.
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+== Data Ijmal Ketetapan dan Realisasi Untuk Tiap Tahun Pajak Dalam Satu Kabupaten/Kota
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+
+== Data Ijmal Ketetapan dan Realisasi Untuk Tiap Tahun Pajak Berdasarkan Kode Kecamatan
+
+=== _Endpoint_ dan _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
+
+
+

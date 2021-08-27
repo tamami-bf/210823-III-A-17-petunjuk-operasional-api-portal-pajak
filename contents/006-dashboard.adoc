@@ -1,0 +1,474 @@
+== Data Ketetapan PBB Tiap Kecamatan
+
+Simpul ini untuk memberikan informasi daftar ketetapan Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2) masing-masing Kecamatan yang ada di Kabupaten Brebes berdasarkan data yang ada pada SISMIOP di sistem basis data Oracle.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /dashboard-sismiop/getKetetapanKecamatan
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+-
+
+==== _Response Parameters_
+
+Berbentuk `List` dengan tipe data `Object` seperti berikut :
+
+* `kdKecamatan`: kode Kecamatan terdaftar 
+* `nmKecamatan`: nama Kecamatan terdaftar
+* `ketetapan`: jumlah ketetapan di tahun berjalan
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/dashboard-sismiop/getKetetapanKecamatan
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "kdKecamatan": "000",
+    "nmKecamatan": "WILAYAH KHUSUS",
+    "ketetapan": 4954422968
+  },
+  {
+    "kdKecamatan": "010",
+    "nmKecamatan": "SALEM",
+    "ketetapan": 1322236972
+  },
+  {
+    "kdKecamatan": "020",
+    "nmKecamatan": "BANTARKAWUNG",
+    "ketetapan": 1453640467
+  },
+  {
+    "kdKecamatan": "030",
+    "nmKecamatan": "BUMIAYU",
+    "ketetapan": 2370975201
+  },
+  {
+    "kdKecamatan": "040",
+    "nmKecamatan": "PAGUYANGAN",
+    "ketetapan": 1690816826
+  },
+  {
+    "kdKecamatan": "050",
+    "nmKecamatan": "SIRAMPOG",
+    "ketetapan": 821360832
+  },
+  {
+    "kdKecamatan": "060",
+    "nmKecamatan": "TONJONG",
+    "ketetapan": 1276037608
+  },
+  {
+    "kdKecamatan": "070",
+    "nmKecamatan": "LARANGAN",
+    "ketetapan": 2853002928
+  },
+  {
+    "kdKecamatan": "080",
+    "nmKecamatan": "KETANGGUNGAN",
+    "ketetapan": 2841846163
+  },
+  {
+    "kdKecamatan": "090",
+    "nmKecamatan": "BANJARHARJO",
+    "ketetapan": 2377339448
+  },
+  {
+    "kdKecamatan": "100",
+    "nmKecamatan": "LOSARI",
+    "ketetapan": 2327222964
+  },
+  {
+    "kdKecamatan": "110",
+    "nmKecamatan": "TANJUNG",
+    "ketetapan": 2725217690
+  },
+  {
+    "kdKecamatan": "120",
+    "nmKecamatan": "KERSANA",
+    "ketetapan": 1600092340
+  },
+  {
+    "kdKecamatan": "130",
+    "nmKecamatan": "BULAKAMBA",
+    "ketetapan": 4645216205
+  },
+  {
+    "kdKecamatan": "140",
+    "nmKecamatan": "WANASARI",
+    "ketetapan": 3107708215
+  },
+  {
+    "kdKecamatan": "150",
+    "nmKecamatan": "JATIBARANG",
+    "ketetapan": 1869606985
+  },
+  {
+    "kdKecamatan": "160",
+    "nmKecamatan": "BREBES",
+    "ketetapan": 3706624992
+  },
+  {
+    "kdKecamatan": "170",
+    "nmKecamatan": "SONGGOM",
+    "ketetapan": 1677394170
+  }
+]
+----
+
+
+
+== Data Realisasi PBB Tiap Kecamatan
+
+Simpul ini untuk memberikan daftar realisasi Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2) masing-masing Kecamatan di Kabupaten Brebes untuk tahun berjalan.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /dashboard-sismiop/getRealisasiKecamatan
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+-
+
+==== _Response Parameters_
+
+`List` dengan tipe data `Object` yang elementnya terdiri dari :
+
+* `kdKecamatan`: kode Kecamatan
+* `nmKecamatan`: nama Kecamatan
+* `realisasi`: realisasi di tahun berjalan
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/dashboard-sismiop/getRealisasiKecamatan
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "kdKecamatan": "010",
+    "nmKecamatan": "SALEM",
+    "realisasi": 893819094
+  },
+  {
+    "kdKecamatan": "020",
+    "nmKecamatan": "BANTARKAWUNG",
+    "realisasi": 627636479
+  },
+  {
+    "kdKecamatan": "030",
+    "nmKecamatan": "BUMIAYU",
+    "realisasi": 1328602777
+  },
+  {
+    "kdKecamatan": "040",
+    "nmKecamatan": "PAGUYANGAN",
+    "realisasi": 848657003
+  },
+  {
+    "kdKecamatan": "050",
+    "nmKecamatan": "SIRAMPOG",
+    "realisasi": 343534840
+  },
+  {
+    "kdKecamatan": "060",
+    "nmKecamatan": "TONJONG",
+    "realisasi": 685976926
+  },
+  {
+    "kdKecamatan": "070",
+    "nmKecamatan": "LARANGAN",
+    "realisasi": 566164074
+  },
+  {
+    "kdKecamatan": "080",
+    "nmKecamatan": "KETANGGUNGAN",
+    "realisasi": 1066968739
+  },
+  {
+    "kdKecamatan": "090",
+    "nmKecamatan": "BANJARHARJO",
+    "realisasi": 1041110830
+  },
+  {
+    "kdKecamatan": "100",
+    "nmKecamatan": "LOSARI",
+    "realisasi": 1522853050
+  },
+  {
+    "kdKecamatan": "110",
+    "nmKecamatan": "TANJUNG",
+    "realisasi": 1659736079
+  },
+  {
+    "kdKecamatan": "120",
+    "nmKecamatan": "KERSANA",
+    "realisasi": 364168991
+  },
+  {
+    "kdKecamatan": "130",
+    "nmKecamatan": "BULAKAMBA",
+    "realisasi": 2075818279
+  },
+  {
+    "kdKecamatan": "140",
+    "nmKecamatan": "WANASARI",
+    "realisasi": 1396491852
+  },
+  {
+    "kdKecamatan": "150",
+    "nmKecamatan": "JATIBARANG",
+    "realisasi": 690509807
+  },
+  {
+    "kdKecamatan": "160",
+    "nmKecamatan": "BREBES",
+    "realisasi": 2023109673
+  },
+  {
+    "kdKecamatan": "170",
+    "nmKecamatan": "SONGGOM",
+    "realisasi": 773753619
+  }
+]
+----
+
+
+
+== Data Realisasi Kecamatan Tertentu
+
+Simpul ini untuk melihat realisasi di Kecamatan tertentu, termasuk detail pokok ketetapan, denda administrasi, dan total pokok dan denda administrasinya.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /dashboard-sismiop/getRealisasi/{kdKecamatan}
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `kdKecamatan`: kode Kecamatan yang akan dilihat datanya
+
+==== _Response Parameters_
+
+* `idKecamatan`: kode Kecamatan
+* `mainValue`: realisasi dari pokok ketetapan
+* `findValue`: realisasi dari denda administrasi 
+* `totalValue`: realisasi keseluruhan dari pokok dan denda administrasi
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/dashboard-sismiop/getRealisasi/010
+----
+
+=== _Response Example_
+
+----
+{
+  "idKecamatan": "010",
+  "mainValue": 893815999,
+  "fineValue": 3095,
+  "totalValue": 893819094
+}
+----
+
+
+
+== Daftar Kecamatan
+
+Simpul ini memberikan informasi daftar Kecamatan termasuk kode wilayah yang terdaftar di SISMIOP pada sistem basis data Oracle
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /dashboard-sismiop/getListKecamatan
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+-
+
+==== _Response Parameters_
+
+Berbentuk `List` dengan tipe data `Object` yang memiliki elemen seperti berikut :
+
+* `kdPropinsi`: kode wilayah Propinsi
+* `kdDati2`: kode wilayah Kota/Kabupaten
+* `kdKecamatan`: kode wilayah Kecamatan
+* `nmKecamatan`: nama Kecamatan
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/dashboard-sismiop/getListKecamatan
+----
+
+=== _Response Example_
+
+----
+[
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "000",
+    "nmKecamatan": "WILAYAH KHUSUS"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "010",
+    "nmKecamatan": "SALEM"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "020",
+    "nmKecamatan": "BANTARKAWUNG"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "030",
+    "nmKecamatan": "BUMIAYU"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "040",
+    "nmKecamatan": "PAGUYANGAN"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "050",
+    "nmKecamatan": "SIRAMPOG"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "060",
+    "nmKecamatan": "TONJONG"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "070",
+    "nmKecamatan": "LARANGAN"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "080",
+    "nmKecamatan": "KETANGGUNGAN"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "090",
+    "nmKecamatan": "BANJARHARJO"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "100",
+    "nmKecamatan": "LOSARI"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "110",
+    "nmKecamatan": "TANJUNG"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "120",
+    "nmKecamatan": "KERSANA"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "130",
+    "nmKecamatan": "BULAKAMBA"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "140",
+    "nmKecamatan": "WANASARI"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "150",
+    "nmKecamatan": "JATIBARANG"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "160",
+    "nmKecamatan": "BREBES"
+  },
+  {
+    "kdPropinsi": "33",
+    "kdDati2": "29",
+    "kdKecamatan": "170",
+    "nmKecamatan": "SONGGOM"
+  }
+]
+----
+
+
+
+== Data Realisasi Tahun Berjalan
+
+Simpul ini memberikan informasi realisasi Pajak Bumi dan Bangunan Perdesaan (PBB-P2) dan Perkotaan di tahun berjalan
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /dashboard-sismiop/get-realisasi-tahun-berjalan
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+-
+
+==== _Response Parameters_
+
+Realisasi PBB-P2 tahun berjalan
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/dashboard-sismiop/get-realisasi-tahun-berjalan
+----
+
+=== _Response Example_
+
+----
+13453916688
+----
