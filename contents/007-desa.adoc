@@ -173,18 +173,74 @@ Simpul ini memberikan daftar rincian untuk seluruh objek yang telah terbayar ber
 === _Endpoint_ dan _Methods_
 
 ----
-
+POST /sismiop-service/desa/get-paid-data-by-wilayah-and-year
 ----
 
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah Desa/Kelurahan lengkap dari kode Provinsi.
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+`List` objek dengan elemen tiap objeknya seperti berikut :
+
+* `nop`: nomor objek pajak
+* `namaWp`: nama wajib pajak
+* `thnPajak`: tahun pajak
+* `pbb`: nilai pokok pajak bumi dan bangunan perdesaan dan perkotaan
+* `statusPembayaran`: status pembayaran, bila berisi `0` maka objek pajak belum bayar, bila `1` maka objek pajak telah terbayar
+* `tglJatuhTempo`: tanggal jatuh tempo pembayaran
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-paid-data-by-wilayah-and-year
+----
+
+_body_ : 
+
+----
+{
+    "kodeWilayah": "3329010009",
+    "thnPajak": "2021"
+}
+----
+
 === _Response Example_
+
+----
+[
+  {
+    "nop": "332901000900100010",
+    "namaWp": "SUTISNO",
+    "thnPajak": "2021",
+    "pbb": 40000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000900100020",
+    "namaWp": "RATINAH CS TRIYANTO",
+    "thnPajak": "2021",
+    "pbb": 28000,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  },
+  {
+    "nop": "332901000900100030",
+    "namaWp": "RATINAH CS TRIYANTO",
+    "thnPajak": "2021",
+    "pbb": 32800,
+    "statusPembayaran": "1",
+    "tglJatuhTempo": "2021-09-29T17:00:00.000+0000"
+  }
+]
+----
 
 
 
@@ -195,15 +251,47 @@ Simpul ini memberikan informasi data rekapitulasi piutang dan realisasi untuk wi
 
 === _Endpoint_ dan _Methods_
 
+----
+POST /sismiop-service/desa/get-piutang-realisasi-by-wilayah-and-tahun
+----
+
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah lengkap untuk Desa/Kelurahan, untuk Kecamatan, 3 (tiga) digit terakhir diisikan `000`, dan untuk Kabupaten, 6 (enam) digit terakhir diisikan `000000`
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+* `piutang`: nilai total piutang untuk wilayah tersebut
+* `realisasi`: nilai total realisasi untuk wilayah tersebut
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-piutang-realisasi-by-wilayah-and-tahun
+----
+
+_body_ :
+
+----
+{
+    "kodeWilayah": "3329000000",
+    "thnPajak": "2021"
+}
+----
+
 === _Response Example_
+
+----
+{
+  "piutang": 29655587141,
+  "realisasi": 13965437950
+}
+----
 
 
 
@@ -213,15 +301,43 @@ Simpul ini hanya memberikan data rekapitulasi piutang untuk wilayah Desa/Kelurah
 
 === _Endpoint_ dan _Methods_ 
 
+----
+POST /sismiop-service/desa/get-piutang-by-desa-and-tahun
+----
+
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah lengkap untuk Desa/Kelurahan
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+Nilai piutang Pajak Bumi dan Bangunan Perdesaan dan Perkotaan
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-piutang-by-desa-and-tahun
+----
+
+_body_ : 
+
+----
+{
+    "kodeWilayah": "3329160009",
+    "thnPajak": "2021"
+}
+----
+
 === _Response Example_
+
+----
+377237142
+----
 
 
 
@@ -231,15 +347,43 @@ Simpul ini hanya memberikan data rekapitulasi piutang untuk wilayah tertentu dan
 
 === _Endpoint_ dan _Methods_
 
+----
+POST /sismiop-service/desa/get-piutang-by-kode-wilayah
+----
+
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah lengkap untuk Desa/Kelurahan, untuk Kecamatan, 3 (tiga) digit terakhir diisikan `000`, dan untuk Kabupaten, 6 (enam) digit terakhir diisikan `000000`
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+Nilai piutang Pajak Bumi dan Bangunan Perdesaan dan Perkotaan 
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-piutang-by-kode-wilayah
+----
+
+_body_ : 
+
+----
+{
+    "kodeWilayah": "3329000000",
+    "thnPajak": "2021"
+}
+----
+
 === _Response Example_
+
+----
+29637396276
+----
 
 
 
@@ -249,15 +393,43 @@ Simpul ini hanya memberikan nilai rekapitulasi realisasi untuk wilayah Desa/Kelu
 
 === _Endpoint_ dan _Methods_
 
+----
+POST /sismiop-service/desa/get-realisasi-by-desa-and-tahun
+----
+
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah lengkap untuk Desa/Kelurahan
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+Nilai realisasi total untuk wilayah Desa/Kelurahan dengan tahun pajak tertentu
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-realisasi-by-desa-and-tahun
+----
+
+_body_ :
+
+----
+{
+    "kodeWilayah": "3329010001",
+    "thnPajak": "2021"
+}
+----
+
 === _response Example_
+
+----
+23942582
+----
 
 
 
@@ -267,47 +439,166 @@ Simpul ini hanya memberikan nilai rekapitulasi dari realisasi untuk wilayah tert
 
 === _Endpoint_ dan _Methods_
 
+----
+POST /sismiop-service/desa/get-realisasi-by-wilayah-and-tahun
+----
+
 === _Parameters_
 
 ==== _Request Parameters_
 
+Objek dengan format JSON dengan elemen berikut :
+
+* `kodeWilayah`: kode wilayah lengkap untuk Desa/Kelurahan, untuk Kecamatan, 3 (tiga) digit terakhir diisikan `000`, dan untuk Kabupaten, 6 (enam) digit terakhir diisikan `000000`
+* `thnPajak`: tahun pajak
+
 ==== _Response Parameters_
+
+Nilai realisasi untuk wilayah tertentu dan tahun pajak tertentu
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-realisasi-by-wilayah-and-tahun
+----
+
+_body_ : 
+
+----
+{
+    "kodeWilayah": "3329020000",
+    "thnPajak": "2021"
+}
+----
+
 === _Response Example_
+
+----
+577133457
+----
 
 
 
 == Data Ijmal Ketetapan dan Realisasi Untuk Tiap Tahun Pajak Dalam Satu Kabupaten/Kota
 
+Simpul ini memberikan informasi nilai ketetapan dan realisasi untuk setiap tahun pajak dalam wilayah Kabupaten/Kota
+
 === _Endpoint_ dan _Methods_
+
+----
+GET /sismiop-service/desa/get-resume-for-district
+----
 
 === _Parameters_
 
 ==== _Request Parameters_
 
+-
+
 ==== _Response Parameters_
+
+`List` data yang berisi objek dengan elemen berikut :
+
+* `thnPajak`: tahun pajak 
+* `ketetapan`: besarnya ketetapan pajak untuk satu wilayah Kabupaten/Kota
+* `realisasi`: besarnya realisasi pajak untuk satu wilayah Kabupaten/Kota
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-resume-for-district
+----
+
 === _Response Example_
+
+----
+[
+  {
+    "thnPajak": "1994",
+    "ketetapan": 32203,
+    "realisasi": 79335
+  },
+  {
+    "thnPajak": "1995",
+    "ketetapan": 802356,
+    "realisasi": 826966
+  },
+  {
+    "thnPajak": "1996",
+    "ketetapan": 10712717,
+    "realisasi": 11192083
+  },
+  {
+    "thnPajak": "1997",
+    "ketetapan": 12474503,
+    "realisasi": 13754524
+  }
+  ...
+]
+----
 
 
 
 == Data Ijmal Ketetapan dan Realisasi Untuk Tiap Tahun Pajak Berdasarkan Kode Kecamatan
 
+Simpul ini memberikan informasi nilai ketetapan dan realisasi tiap tahun pajak untuk wilayah Kecamatan tertentu
+
 === _Endpoint_ dan _Methods_
+
+----
+GET /sismiop-service/desa/get-resume-for-sub-district/{kdKecamatan}
+----
 
 === _Parameters_
 
 ==== _Request Parameters_
 
+`kdKecamatan` adalah 3 (tiga) digit kode Kecamatan
+
 ==== _Response Parameters_
+
+`List` data yang berisi objek dengan elemen berikut :
+
+* `thnPajak`: tahun pajak 
+* `kdKecamatan`: 3 (tiga) digit kode Kecamatan
+* `ketetapan`: besarnya ketetapan pajak untuk satu wilayah Kabupaten/Kota
+* `realisasi`: besarnya realisasi pajak untuk satu wilayah Kabupaten/Kota
 
 === _Request Example_
 
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/desa/get-resume-for-sub-district/010
+----
+
 === _Response Example_
 
-
+----
+[
+  {
+    "thnPajak": "2004",
+    "kdKecamatan": "010",
+    "ketetapan": 32192663,
+    "realisasi": 25823212
+  },
+  {
+    "thnPajak": "2005",
+    "kdKecamatan": "010",
+    "ketetapan": 32938374,
+    "realisasi": 33052508
+  },
+  {
+    "thnPajak": "2006",
+    "kdKecamatan": "010",
+    "ketetapan": 33052947,
+    "realisasi": 33052947
+  },
+  {
+    "thnPajak": "2007",
+    "kdKecamatan": "010",
+    "ketetapan": 34273663,
+    "realisasi": 34280913
+  },
+  ...
+]
+----
 
