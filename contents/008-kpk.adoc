@@ -1,0 +1,233 @@
+== Data Wajib Pajak Untuk Pajak Bumi dan Bangunan Perdesaan dan Perkotaan
+
+Simpul ini untuk memberikan informasi seluruh data wajib pajak terdaftar untuk Pajak Bumi dan Bangunan Perdesaan dan Perkotaan.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /kpk-sismiop-api/get-list-pbb
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+-
+
+==== _Response Parameters_
+
+Objek dengan format JSON dengan elemen berikut :
+
+* `content`: adalah `List` objek dengan tiap-tiap objek berisi elemen : 
++
+** `kdPropinsi`: berisi 2 (dua) digit kode Provinsi
+** `kdDati2`: berisi 2 (dua) digit kode Kabupaten/Kota
+** `kdKecamatan`: berisi 3 (tiga) digit kode Kecamatan
+** `kdKelurahan`: berisi 3 (tiga) digit kode Desa/Kelurahan
+** `kdBlok`: berisi 3 (tiga) digit kode blok
+** `noUrut`: berisi 4 (empat) digit kode nomor urut objek pajak
+** `kdJnsOp`: berisi 1 (satu) digit kode jenis objek pajak
+** `nmWp`: berisi nama wajib pajak
+** `jnsBumi`: berisi informasi jenis bumi
++
+* `pageable`: parameter untuk konfigurasi halaman, isinya elemen berikut :
+** `sort`: parameter untuk melakukan pengurutan data :
+*** `sorted`: data biner yang menunjukkan apakah datanya terurut atau tidak
+*** `unsorted`: data biner yang menunjukkan apakah datanya tidak terurut atau terurut
+*** `empty`: informasi apakah parameter ini kosong atau tidak
+** `pageNumber`: halaman yang sedang muncul sekarang
+** `pageSize`: ukuran data maksimal yang dapat tampil di halaman ini
+** `offset`: indeks data awal yang tampil di halaman ini
+** `unpaged`: informasi apakah daftar data ini tidak terpotong halaman atau terpotong menjadi beberapa halaman
+** `paged`: informasi apakah daftar data ini terpotong menjadi beberapa halaman atau tidak
+* `last`: data biner untuk informasi apakah data yang tampil pada halaman terakhir atau tidak
+* `totalPages`: informasi total halaman seluruhnya
+* `totalElements`: informasi jumlah total seluruh data
+* `sort`: informasi atau parameter pengurutan data dengan elemen berikut :
+** `sorted`: paramemter biner apakah datanya terurut atau tidak
+** `unsorted`: parameter biner apakah datanya tidak terurut atau terurut
+** `empty`: parameter biner apakah parameter ini terisi atau kosong
+* `first`: data biner untuk informasi apakah data yang tampil pada halaman awal atau tidak
+* `numberOfElements`: jumlah elemen yang tampil di halaman ini
+* `size`: jumlah elemen yang dapat ditampilkan di halaman ini
+* `number`: data elemen yang terpilih
+* `empty`: informasi apakah datanya ada atau kosong
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/kpk-sismiop-api/get-list-pbb 
+----
+
+=== _Response Example_
+
+----
+{
+  "content": [
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "030",
+      "kdKelurahan": "004",
+      "kdBlok": "011",
+      "noUrut": "0050",
+      "kdJnsOp": "0",
+      "nmWp": "NUR AENI",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "030",
+      "kdKelurahan": "004",
+      "kdBlok": "011",
+      "noUrut": "0051",
+      "kdJnsOp": "0",
+      "nmWp": "NASEM TOHA",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "030",
+      "kdKelurahan": "004",
+      "kdBlok": "023",
+      "noUrut": "0023",
+      "kdJnsOp": "0",
+      "nmWp": "KASMU",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+    ...
+  ]
+}
+----
+
+
+
+== Data Wajib Pajak Untuk Pajak Bumi dan Bangunan Perdesaan dan Perkotaan Tiap Halaman
+
+Simpul ini untuk memberikan informasi seluruh data wajib pajak terdaftar tiap halaman untuk Pajak Bumi dan Bangunan Perdesaan dan Perkotaan.
+
+=== _Endpoint_ dan _Methods_
+
+----
+GET /kpk-sismiop-api/get-list-pbb-by-page/{page}
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `page` adalah halaman yang akan ditampilkan dimana tiap halaman akan menampilkan 20 (dua puluh) data 
+
+==== _Response Parameters_
+
+Objek dengan format JSON dengan elemen berikut :
+
+* `content`: adalah `List` objek dengan tiap-tiap objek berisi elemen : 
++
+** `kdPropinsi`: berisi 2 (dua) digit kode Provinsi
+** `kdDati2`: berisi 2 (dua) digit kode Kabupaten/Kota
+** `kdKecamatan`: berisi 3 (tiga) digit kode Kecamatan
+** `kdKelurahan`: berisi 3 (tiga) digit kode Desa/Kelurahan
+** `kdBlok`: berisi 3 (tiga) digit kode blok
+** `noUrut`: berisi 4 (empat) digit kode nomor urut objek pajak
+** `kdJnsOp`: berisi 1 (satu) digit kode jenis objek pajak
+** `nmWp`: berisi nama wajib pajak
+** `jnsBumi`: berisi informasi jenis bumi
++
+* `pageable`: parameter untuk konfigurasi halaman, isinya elemen berikut :
+** `sort`: parameter untuk melakukan pengurutan data :
+*** `sorted`: data biner yang menunjukkan apakah datanya terurut atau tidak
+*** `unsorted`: data biner yang menunjukkan apakah datanya tidak terurut atau terurut
+*** `empty`: informasi apakah parameter ini kosong atau tidak
+** `pageNumber`: halaman yang sedang muncul sekarang
+** `pageSize`: ukuran data maksimal yang dapat tampil di halaman ini
+** `offset`: indeks data awal yang tampil di halaman ini
+** `unpaged`: informasi apakah daftar data ini tidak terpotong halaman atau terpotong menjadi beberapa halaman
+** `paged`: informasi apakah daftar data ini terpotong menjadi beberapa halaman atau tidak
+* `last`: data biner untuk informasi apakah data yang tampil pada halaman terakhir atau tidak
+* `totalPages`: informasi total halaman seluruhnya
+* `totalElements`: informasi jumlah total seluruh data
+* `sort`: informasi atau parameter pengurutan data dengan elemen berikut :
+** `sorted`: paramemter biner apakah datanya terurut atau tidak
+** `unsorted`: parameter biner apakah datanya tidak terurut atau terurut
+** `empty`: parameter biner apakah parameter ini terisi atau kosong
+* `first`: data biner untuk informasi apakah data yang tampil pada halaman awal atau tidak
+* `numberOfElements`: jumlah elemen yang tampil di halaman ini
+* `size`: jumlah elemen yang dapat ditampilkan di halaman ini
+* `number`: data elemen yang terpilih
+* `empty`: informasi apakah datanya ada atau kosong
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/kpk-sismiop-api/get-list-pbb-by-page/3
+----
+
+=== _Response Example_
+
+----
+{
+  "content": [
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "100",
+      "kdKelurahan": "018",
+      "kdBlok": "009",
+      "noUrut": "0193",
+      "kdJnsOp": "0",
+      "nmWp": "SAM ANI ROPIKOH",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "100",
+      "kdKelurahan": "018",
+      "kdBlok": "009",
+      "noUrut": "0195",
+      "kdJnsOp": "0",
+      "nmWp": "NURI",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+    {
+      "kdPropinsi": "33",
+      "kdDati2": "29",
+      "kdKecamatan": "100",
+      "kdKelurahan": "018",
+      "kdBlok": "009",
+      "noUrut": "0196",
+      "kdJnsOp": "0",
+      "nmWp": "RASMANI KURNIASIH",
+      "jnsBumi": "TANAH + BANGUNAN"
+    },
+  ],
+  "pageable": {
+    "sort": {
+      "sorted": false,
+      "unsorted": true,
+      "empty": true
+    },
+    "pageNumber": 3,
+    "pageSize": 20,
+    "offset": 60,
+    "unpaged": false,
+    "paged": true
+  },
+  "last": false,
+  "totalPages": 56247,
+  "totalElements": 1124929,
+  "sort": {
+    "sorted": false,
+    "unsorted": true,
+    "empty": true
+  },
+  "first": false,
+  "numberOfElements": 20,
+  "size": 20,
+  "number": 3,
+  "empty": false
+}
+----

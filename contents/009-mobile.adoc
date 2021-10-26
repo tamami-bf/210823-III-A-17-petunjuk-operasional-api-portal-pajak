@@ -1,0 +1,33 @@
+== Daftar Data NOP Berdasarkan NIK
+
+Simpul ini memberikan informasi daftar Nomor Objek Pajak (NOP) Pajak Bumi dan Bangunan Perdesaan dan Perkotaan (PBB-P2) yang terdaftar dengan Nomor Induk Kependudukan (NIK) yang dicari
+
+=== _Endpoint_ and _Methods_
+
+----
+GET /sismiop-service/mobile/daftar-nop-by-nik/{nik}
+----
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+* `{nik}`: Nomor Induk Kependudukan
+
+==== _Response Parameters_
+
+`List` data berupa daftar NOP PBB-P2 yang terdaftar dengan NIK tersebut
+
+=== _Request Example_
+
+----
+http://pajak-daerah.brebeskab.go.id/sismiop-service/mobile/daftar-nop-by-nik/332901000100100010
+----
+
+=== _Response Example_
+
+----
+[
+  "33.29.010.001.001-0001.0"
+]
+----

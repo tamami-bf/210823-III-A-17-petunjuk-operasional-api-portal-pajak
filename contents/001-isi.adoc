@@ -31,7 +31,22 @@ Dokumen ini berisi simpul simpul akses untuk melakukan pengambilan data dari fun
 
 === Layanan Desa
 
+* <<_data_piutang_berdasarkan_kode_wilayah>>
+* <<_data_piutang_untuk_tahun_pajak_tertentu>>
+* <<_data_terbayar_untuk_tahun_pajak_tertentu>>
+* <<_data_ijmal_piutang_dan_realisasi_di_wilayah_tertentu_untuk_tahun_pajak_tertentu>>
+* <<_data_ijmal_piutang_untuk_wilayah_desakelurahan_tertentu_dan_tahun_pajak_tertentu>>
+* <<_data_ijmal_piutang_untuk_wilayah_tertentu_dan_tahun_pajak_tertentu>>
+* <<_data_ijmal_realisasi_untuk_wilayah_desakelurahan_tertentu_dan_tahun_pajak_tertentu>>
+* <<_data_ijmal_realisasi_untuk_wilayah_tertentu_dan_tahun_pajak_tertentu>>
+* <<_data_ijmal_ketetapan_dan_realisasi_untuk_tiap_tahun_pajak_dalam_satu_kabupatenkota>>
+* <<_data_ijmal_ketetapan_dan_realisasi_untuk_tiap_tahun_pajak_berdasarkan_kode_kecamatan>>
+
+
 === Layanan KPK
+
+* <<_data_wajib_pajak_untuk_pajak_bumi_dan_bangunan_perdesaan_dan_perkotaan>>
+* <<_data_wajib_pajak_untuk_pajak_bumi_dan_bangunan_perdesaan_dan_perkotaan_tiap_halaman>>
 
 === Layanan Aplikasi _Mobile_
 
@@ -45,5 +60,6 @@ include::./003-billing.adoc[]
 include::./004-bpd.adoc[]
 include::./005-bpn.adoc[]
 include::./006-dashboard.adoc[]
-
-
+include::./007-desa.adoc[]
+include::./008-kpk.adoc[]
+include::./009-mobile.adoc[]
