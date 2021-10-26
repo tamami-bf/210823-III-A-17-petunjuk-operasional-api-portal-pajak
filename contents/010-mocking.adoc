@@ -1,0 +1,13 @@
+== Daftar Data NOP Berdasarkan NIK
+
+=== _Endpoint_ and _Methods_
+
+=== _Parameters_
+
+==== _Request Parameters_
+
+==== _Response Parameters_
+
+=== _Request Example_
+
+=== _Response Example_
